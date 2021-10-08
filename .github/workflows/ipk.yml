@@ -51,7 +51,7 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
 
     - name: 编译前硬盘容量
-      if: (!cancelled())
+      if: (!cancelled(8g))
       run: df -hT
 
     - name: Clone source code
@@ -154,7 +154,7 @@ jobs:
         echo "::set-output name=status::success"
 
     - name: 编译后硬盘容量
-      if: (!cancelled())
+      if: (!cancelled(2g))
       run: df -hT
       
     - name: Upload bin directory
